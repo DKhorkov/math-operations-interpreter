@@ -1,4 +1,5 @@
 from src.commands.interfaces import BaseCommand
+from src.exceptions import CustomZeroDivisionError
 
 
 class MultiplyCommand(BaseCommand):
@@ -10,7 +11,10 @@ class MultiplyCommand(BaseCommand):
 class DivideCommand(BaseCommand):
 
     def execute(self) -> float:
-        return self._a / self._b
+        try:
+            return self._a / self._b
+        except ZeroDivisionError:
+            raise CustomZeroDivisionError()
 
 
 class SubtractCommand(BaseCommand):

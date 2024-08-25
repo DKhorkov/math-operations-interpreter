@@ -1,5 +1,6 @@
 import os
 import sys
+from typing import Optional
 
 # Adding ./src to python path for running from console purpose:
 sys.path.append(os.getcwd())
@@ -19,11 +20,12 @@ if __name__ == '__main__':
     )
 
     user_input: str = ''
-    while not interpreter.get_result():
+    result: Optional[float] = None
+    while not (result := interpreter.get_result()):
         user_input = input('>>: ').strip(' ').lower()
         if EXIT_VARIABLE in user_input:
             sys.exit(0)
 
         interpreter.interpret(user_input=user_input)
 
-    print(f'{RESULT_VARIABLE} = ', interpreter.get_result())
+    print(f'{RESULT_VARIABLE} = {result}')

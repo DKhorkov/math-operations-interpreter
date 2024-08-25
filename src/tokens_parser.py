@@ -3,11 +3,12 @@ from typing import List
 from src.enums import TokenTypesEnum
 from src.exceptions import ParseError
 from src.config import OPERATIONS
+from src.interfaces import Parser
 from src.tokens import Token
 from src.expressions import Expression, BinaryOperation, Number, UnaryOperation
 
 
-class TokensParser:
+class TokensParser(Parser):
     """
     Creates Abstract Syntax Tree according to operations priority in provided expression.
 
@@ -29,7 +30,7 @@ class TokensParser:
         Parses the expression, created by user.
         """
 
-        # initializes for each new parsing process:
+        # Initializes for each new parsing process:
         self._next_token_index = 0
         self._tokens = tokens
 

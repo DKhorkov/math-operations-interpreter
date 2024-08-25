@@ -8,10 +8,7 @@ class CustomException(Exception):
 class ExpressionSyntaxError(CustomException):
 
     def __init__(self) -> None:
-        self.msg: str = (
-            'В выражении допущена синтаксическая ошибка! '
-            'Пожалуйста, проверьте входные данные и попробуйте снова!\n'
-        )
+        self.msg: str = 'There is a syntax error in the expression. Please check your input and try again.\n'
 
 
 class ParseError(CustomException):
@@ -24,12 +21,18 @@ class IncorrectVariableAssignmentError(CustomException):
 
     def __init__(self) -> None:
         self.msg: str = (
-            'Некорректные входные данные. '
-            'Входные данные должны иметь следующий вид: "var = expression"\n'
+            'Invalid input data. Input data should look like this: "var = expression", '
+            'where "var" contains only alphabetic characters.\n'
         )
 
 
 class UnknownExpressionTypeError(CustomException):
 
     def __init__(self) -> None:
-        self.msg: str = 'Получен неизвестный тип выражения\n'
+        self.msg: str = 'Unknown expression type received.\n'
+
+
+class CustomZeroDivisionError(CustomException):
+
+    def __init__(self) -> None:
+        self.msg: str = 'Number can not be divided by zero. Please check your input and try again.\n'
