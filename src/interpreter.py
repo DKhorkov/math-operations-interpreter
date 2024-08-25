@@ -57,7 +57,7 @@ class MathOperationsInterpreter:
 
     def _validate_user_input(self, user_input: str) -> Tuple[str, str]:
         """
-        Validates user input. If the input is invalid, raises IncorrectVariableAssignmentError.
+        Validates user input. If input is invalid, raises IncorrectVariableAssignmentError.
 
         User input must contain a variable, an assignment sign, and an assignment expression.
         Variable must contain only alphabetic characters.
