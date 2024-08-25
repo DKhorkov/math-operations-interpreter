@@ -2,12 +2,12 @@
 
 Interpreter of mathematical expressions build using Python programming language.
 
-The program is based on three main concepts:
-- **Lexical Analysis:** Analyzes the expression, provided by user, and generates tokens from the expression;
+Math Operations Interpreter is based on three main concepts:
+- **Lexical Analysis:** Analyzes the expression, provided by user, and generates tokens from it;
 - **Parsing:** Parses tokens to create an Abstract Syntax Tree according to operations priority in provided expression;
 - **Interpreter:** Interprets provided by user expression, if it is valid, else reports an error.
 
-Math Operations Interpreter supports the following types of operations:
+Math Operations Interpreter supports following types of operations:
 - **Basic arithmetic operations:** addition (+), subtraction (-), multiplication (*), division (/), exponentiation (^);
 - **Parentheses:** Supports operations based on operator precedence and execution order within parentheses;
 - **Basic math functions:** sin(), cos(), tan(), log(), sqrt() and exp();
@@ -32,12 +32,12 @@ python src/main.py
 
 ## Usage
 
-To use the Math Operations Interpreter, user must correctly input the variable and the expression assigned to it:
+To use Math Operations Interpreter, user must correctly input the variable and the expression assigned to it:
 - User input must contain a variable, an assignment sign, and an assignment expression;
 - Variable must contain only alphabetic characters.
 
 #### Getting result
-To get the result of the final expression user must input the "result" variable with final expression:
+To get the total of interpreted expressions user must input the "result" variable with final expression:
 ```text
 >>: result = 2
 result =  2.0
@@ -46,7 +46,7 @@ Process finished with exit code 0
 ```
 
 #### Exit
-To exit the Math Operations Interpreter, user's input must contain "exit" word:
+To exit Math Operations Interpreter, user's input must contain "exit" word:
 ```text
 >>: exit
 

@@ -109,7 +109,7 @@ class TokensParser(Parser):
 
     def _get_next_token(self, expected_token_type: TokenTypesEnum) -> Token:
         """
-        Returns the next token if it is of the expected type.
+        Returns next token if token's type matches expected token type.
 
         In other case raises error.
         """
@@ -124,7 +124,7 @@ class TokensParser(Parser):
 
     def _get_next_token_type(self) -> TokenTypesEnum:
         """
-        Checks the type of upcoming token without consuming it.
+        Checks type of upcoming token without consuming it.
         """
 
         return self._tokens[self._next_token_index].type

@@ -16,7 +16,7 @@ class LexicalProcessor(Processor):
 
     def process_expression(self, expression: str) -> List[Token]:
         """
-        Processes an expression and returns the resulting tokens, if the expression is valid.
+        Processes expression and returns the list of tokens generated from expression, if expression is valid.
         """
 
         # Initializes for each new expression processing:
@@ -37,11 +37,11 @@ class LexicalProcessor(Processor):
 
     def _extract_regex_pattern_from_expression(self) -> None:
         """
-        Extracts the regular expression pattern from the expression, starting from the beginning.
-        If one of the regular expression patterns is found in the expression, the corresponding token will be created.
+        Extracts the RegEx pattern from expression, starting from the beginning.
+        If one of RegEx patterns is found in the expression, the corresponding token will be created.
         In other case, expression is not valid and ExpressionSyntaxError will be raised.
 
-        After the token is created, the expression is reduced by the characters used for tokenization
+        After token is created, the expression is reduced by the characters used for tokenization
         and processed recursively.
         """
 

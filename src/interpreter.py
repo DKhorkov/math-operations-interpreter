@@ -34,10 +34,9 @@ class MathOperationsInterpreter:
 
     def interpret(self, user_input: str) -> None:
         """
-        1) Receives user input;
-        2) Checks if it is valid;
-        3) Interprets the expression in the user input and executes it;
-        4) Assigns executed result of the expression to a given variable.
+        1) Receives user input and checks it validity;
+        2) Interprets the expression in the user input and executes it;
+        3) Assigns executed result of the expression to a given variable.
         """
 
         try:
@@ -58,7 +57,8 @@ class MathOperationsInterpreter:
 
     def _validate_user_input(self, user_input: str) -> Tuple[str, str]:
         """
-        Validates user input. If the input is incorrect, raises IncorrectVariableAssignmentError.
+        Validates user input. If the input is invalid, raises IncorrectVariableAssignmentError.
+
         User input must contain a variable, an assignment sign, and an assignment expression.
         Variable must contain only alphabetic characters.
 
@@ -96,8 +96,7 @@ class MathOperationsInterpreter:
 
     def _substitute_user_variables(self, expression: str) -> str:
         """
-        Check, if an already interpreted variable in expression, and substitute it
-        with already interpreted expression value, if so.
+        Substitutes already interpreted variable in expression if exists.
         """
 
         for key in self._user_variables.keys():
@@ -110,7 +109,7 @@ class MathOperationsInterpreter:
         """
         1) All basic mathematical functions, such as sin, cos, tan, log, sqrt and exp,
         are executed if any in the expression;
-        2) Generates tokens from the expression to parsing purpose;
+        2) Generates tokens from the expression for parsing purpose;
         3) Creates AST (Abstract Syntax Tree) on tokens basis;
         4) Recursively calculates the value of a parsed expression based on the AST.
         """
@@ -127,8 +126,8 @@ class MathOperationsInterpreter:
 
     def _execute_math_operations(self, expression: str) -> str:
         """
-        Searches for a math function in an expression.
-        If such a function is found, calculates its value and replaces the subexpression related to the
+        Searches for a math function in expression.
+        If such function is found, calculates its value and replaces the subexpression related to the
         math function with the calculated value.
 
         Example:
@@ -159,8 +158,8 @@ class MathOperationsInterpreter:
     @staticmethod
     def _extract_expression_from_parentless(expression: str) -> Tuple[str, str]:
         """
-        Extracts subexpression from parentless original expression for math functions purposes.
-        If original expression is not valid and there is no parentless in it, raises ExpressionSyntaxError.
+        Extracts subexpression from parentless in original expression for math functions purposes.
+        If original expression is not valid or there is no parentless in it, raises ExpressionSyntaxError.
         Returns extracted subexpression and the remaining part of original expression.
 
         Example:
